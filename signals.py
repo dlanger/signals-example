@@ -13,13 +13,9 @@ SIGNALS_CAUGHT = (
   signal.SIGUSR1,
  )
  
-NUM_PROCESSES = 5
+NUM_PROCESSES = 2
 
-def welcome():
-  print
-  print "POSIX Signals Tester"
-  print
-  
+ 
 def set_up_signal_handlers():
   for signal_caught in SIGNALS_CAUGHT:
     signal.signal(signal_caught, _signal_handler)
@@ -52,7 +48,6 @@ if __name__ == "__main__":
   if catch_sigterm:
     SIGNAL_CAUGHT = SIGNALS_CAUGHT + (signal.SIGTERM,)
 
-  welcome()
   set_up_signal_handlers()
   
   if enable_multiprocessing:
